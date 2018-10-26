@@ -9,7 +9,7 @@ mkdir -p $DOWNLOAD_DIR
 cd $DOWNLOAD_DIR
 
 # Create session ID–time map file (if it doesn't exist)
-if ! [ -e ../sessions.json ]
+if [ ! -e ../sessions.json ]
 then
    echo '{"sessions": {}}' > ../sessions.json
 fi

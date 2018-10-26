@@ -3,9 +3,9 @@
 # emits desired information back
 
 PROGRESS_PIPE=ffmpeg-progress
-[ ! -e $PROGRESS_PIPE ] && mkfifo $PROGRESS_PIPE
+[ ! -p $PROGRESS_PIPE ] && mkfifo $PROGRESS_PIPE
 
-while true
+while [ -p $PROGRESS_PIPE ]
 do
    if read line < $PROGRESS_PIPE; then
       echo "$line"
