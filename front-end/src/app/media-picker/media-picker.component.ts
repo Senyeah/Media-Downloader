@@ -8,7 +8,7 @@ import { Media } from '../media';
 })
 export class MediaPickerComponent implements OnInit {
 
-  @Input('source') private episodes: Media[] = [];
+  @Input() private source: Media[] = [];
 
   constructor() { }
 

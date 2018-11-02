@@ -9,7 +9,7 @@ import { Media } from '../media';
 export class MediaSectionComponent implements OnInit {
 
   @Input() title: string;
-  @Input('playbackSource') episodes: Media[];
+  @Input() playbackSource: Media[];
 
   constructor() { }
 
