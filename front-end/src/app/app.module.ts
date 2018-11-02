@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MediaPickerComponent } from './media-picker/media-picker.component';
 import { MediaSectionComponent } from './media-section/media-section.component';
-import { MediaPlayButtonComponent } from './media-play-button/media-play-button.component';
+import { MediaActionButtonComponent } from './media-action-button/media-action-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MediaPickerComponent,
     MediaSectionComponent,
-    MediaPlayButtonComponent
+    MediaActionButtonComponent
   ],
   imports: [
     BrowserModule,

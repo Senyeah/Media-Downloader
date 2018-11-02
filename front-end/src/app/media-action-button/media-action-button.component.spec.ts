@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediaPlayButtonComponent } from './media-play-button.component';
+import { MediaActionButtonComponent } from './media-action-button.component';
 
-describe('MediaPlayButtonComponent', () => {
-  let component: MediaPlayButtonComponent;
-  let fixture: ComponentFixture<MediaPlayButtonComponent>;
+describe('MediaActionButtonComponent', () => {
+  let component: MediaActionButtonComponent;
+  let fixture: ComponentFixture<MediaActionButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MediaPlayButtonComponent ]
+      declarations: [ MediaActionButtonComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MediaPlayButtonComponent);
+    fixture = TestBed.createComponent(MediaActionButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
