@@ -1,0 +1,33 @@
+@import '../../variables';
+
+:host {
+  display: block;
+  flex-shrink: 0;
+  padding: 4px 15px;
+  
+  background-color: #f0f0f7;
+  border-radius: 50px;
+  
+  color: $tint-colour;
+  font-weight: 600;
+  
+  cursor: pointer;
+  
+  @include media-screen-desktop {
+    padding: 10px 20px;
+    border-radius: 6px;    
+  }
+  
+  /* Play button */
+  img {
+    margin: 0 2px 0 0;
+  }
+  
+  &.compact {
+    padding: 7px 12px;
+    img {
+      margin: 0 0 0 2px;
+    }
+  }
+}
+

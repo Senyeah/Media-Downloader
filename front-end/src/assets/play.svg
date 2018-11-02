@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>play</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main-Screen" transform="translate(-264.000000, -480.000000)" fill="#007aff">
+            <g id="Playlist-Play" transform="translate(244.000000, 468.000000)">
+                <g id="Group" transform="translate(20.000000, 7.000000)">
+                    <path d="M10.3322344,10.308406 C10.8369403,10.5895369 11.0724697,10.6691381 11.0724697,10.9565866 C11.0724697,11.2566702 10.8492344,11.381126 10.3289991,11.6862636 C10.0721168,11.8366213 1.55423444,16.5520407 1.30899915,16.6948173 C1.00941091,16.8698134 0.0724697368,17.5994905 0.0724697368,16.0030456 L0.0724697368,5.99478281 C0.0724697368,4.42739864 1.0411168,5.15138988 1.30899915,5.30301108 C2.64646974,6.05922182 9.8708815,10.0512817 10.3322344,10.308406" id="play"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

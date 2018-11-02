@@ -1,0 +1,17 @@
+// Global app tint colour, used on actions
+$tint-colour: #007aff;
+$content-inset: 20px;
+
+$screen-mobile-max: 1000px;
+
+@mixin media-screen-mobile {
+  @media (max-width: $screen-mobile-max) {
+    @content;
+  }
+}
+
+@mixin media-screen-desktop {
+  @media (min-width: $screen-mobile-max) {
+    @content;
+  }
+}

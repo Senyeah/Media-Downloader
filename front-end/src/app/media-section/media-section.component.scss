@@ -1,0 +1,38 @@
+@import '../../variables';
+
+:host {
+  display: block;
+  margin: 1rem 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include media-screen-mobile {
+    align-items: flex-end;
+    border-bottom: 0.5px solid #e5e5e5;
+    padding-right: $content-inset;
+    
+    @media (min-resolution: 200dpi) {
+      border-bottom-color: #c9cfd2;
+    }
+  }
+}
+
+h1 {
+  @include media-screen-mobile {
+    font-size: 25px;
+    margin: 0.3em 0;
+  }
+  @include media-screen-desktop {
+    font-size: 1.75rem;
+  }
+}
+
+app-media-play-button {
+  @include media-screen-mobile {
+    margin: 0.6rem 0;
+  }
+}

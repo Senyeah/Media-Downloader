@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import 'normalize.css';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+@include media-screen-mobile {
+  .mobile-overflow-inset {
+    margin-left: -$content-inset;
+    width: 100vw;
+    
+    & > *:first-child {
+      margin-left: $content-inset;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<figure *ngFor="let show of episodes">
+  <header>
+    <figcaption>
+      <h2>{{show.title}}</h2>
+      <h3>Today 7:30 pm</h3>
+    </figcaption>
+    <app-media-play-button class="compact"></app-media-play-button>
+  </header>
+  <img [src]="show.thumbnailUrl" (click)="play(show)">
+</figure>

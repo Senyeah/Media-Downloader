@@ -1,0 +1,66 @@
+@import '../../variables';
+
+:host {
+  display: flex;
+  
+  @include media-screen-desktop {
+    width: 100%;
+  }
+
+  margin-top: 0.5rem;
+  
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  
+  &::-webkit-scrollbar {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* Heading, subtitle and add-to-playlist button */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  h2, h3 {
+    margin: 0.3rem 0;
+    letter-spacing: -0.4px;
+    word-break: break-all;
+  }
+
+  h2 {
+    font-size: 21px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-weight: normal;
+    font-size: 18px;
+    color: #9b9b9b;
+  }
+  
+  button {
+    flex-shrink: 0;
+    color: $tint-colour;
+  }
+}
+
+figure {
+  margin: 0;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  img {
+    display: block;
+    height: 140px;
+    border-radius: 6px;
+    margin: 16px 0 0;
+  }
+}
