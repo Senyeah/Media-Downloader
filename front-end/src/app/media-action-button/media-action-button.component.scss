@@ -3,29 +3,33 @@
 :host {
   display: block;
   flex-shrink: 0;
-  padding: 4px 15px;
+  padding: 10px 20px;
   
   background-color: #f0f0f7;
-  border-radius: 50px;
+  border-radius: 6px;
   
   color: $tint-colour;
   font-weight: 600;
   
   cursor: pointer;
   
-  @include media-screen-desktop {
-    padding: 10px 20px;
-    border-radius: 6px;    
+  @include media-screen-mobile {
+    &:not(.compact) {
+      padding: 4px 15px;
+      border-radius: 50px;
+    }
   }
-  
-  /* Play button */
-  img {
-    margin: 0 2px 0 0;
-  }
-  
+    
   &.compact {
     padding: 7px 12px;
+  }
+  
+  ::ng-deep {
     img {
+      margin: 0 2px 0 0;
+    }
+    
+    &.compact img {
       margin: 0 0 0 2px;
     }
   }

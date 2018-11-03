@@ -4,7 +4,10 @@
       <h2>{{show.title}}</h2>
       <h3>Today 7:30 pm</h3>
     </figcaption>
-    <app-media-action-button class="compact"></app-media-action-button>
+    <app-media-action-button class="compact">
+      <img src="/assets/play.svg">
+      Play
+    </app-media-action-button>
   </header>
   <img [src]="show.thumbnailUrl" (click)="play(show)">
 </figure>
