@@ -56,7 +56,7 @@ ssh -o 'StrictHostKeyChecking no' root@$SERVER_ADDRESS ':'
 echo "Copying binaries..."
 
 # Quickest method to get binaries across to the transcoding server
-scp /usr/bin/ffmpeg /usr/bin/ffprobe /usr/bin/bc root@$SERVER_ADDRESS:/usr/bin
+scp ~/bin/ffmpeg ~/bin/ffprobe ~/bin/bc root@$SERVER_ADDRESS:/usr/bin
 
 # Copy media and hls creation script
 scp ~/create-hls-stream.sh ~/ffmpeg-monitor-progress.sh root@$SERVER_ADDRESS:~
@@ -72,7 +72,7 @@ TRANSCODE_PROGRESS_PIPE=transcode-progress
 cleanup() {
   [ -e $STATUS_FILE.lock ] && rm $STATUS_FILE.lock
   [ -p $TRANSCODE_PROGRESS_PIPE ] && rm $TRANSCODE_PROGRESS_PIPE
-  doctl compute droplet delete -f $DROPLET_NAME
+  doctl compute droplet delete -f $DROPLET_ID
 }
 
 trap cleanup EXIT HUP INT QUIT TERM
@@ -88,6 +88,8 @@ trap cleanup EXIT HUP INT QUIT TERM
 # Example:
 #   update_status_field <url> "duration" 1200
 update_status_field() {
+  # Ensure the literal is valid before committing an update
+  jq empty <<< "$3" && \
   flock $STATUS_FILE.lock \
   jq --arg url "$1" \
     --arg key "$2" \
@@ -110,19 +112,18 @@ update_progress() {
     if read line; then
       # Progress lines are written back in the form
       # <SPEED> <SECONDS>
-      PROGRESS_SPEED=$(echo "$line" | awk '{print $1}')
-      PROGRESS_SECONDS=$(echo "$line" | awk '{print $2}')
+      read PROGRESS_SPEED PROGRESS_SECONDS <<< "$line"
       
-      PERCENT_COMPLETE=$(
-        echo "scale=3; $PROGRESS_SECONDS / $2" | bc
+      PER_CENT_COMPLETE=$(
+        bc <<< "scale=3; $PROGRESS_SECONDS / $2"
       )
       
       TIME_REMAINING=$(
-        echo "($2 - $PROGRESS_SECONDS) / $PROGRESS_SPEED" | bc
+        bc <<< "($2 - $PROGRESS_SECONDS) / $PROGRESS_SPEED"
       )
       
       update_status_field $1 'encode_remaining_sec' $TIME_REMAINING
-      update_status_field $1 'encode_progress' $PERCENT_COMPLETE
+      update_status_field $1 'encode_progress' $PER_CENT_COMPLETE
     fi
   done < $TRANSCODE_PROGRESS_PIPE
 }

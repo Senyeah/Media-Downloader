@@ -6,6 +6,8 @@ SESSION_READABLE_TIME="$(date +%c)"
 
 DOWNLOAD_DIR=~/downloads/$SESSION_ID
 mkdir -p $DOWNLOAD_DIR
+ln -s $DOWNLOAD_DIR latest
+
 cd $DOWNLOAD_DIR
 
 # Create session ID–time map file (if it doesn't exist)

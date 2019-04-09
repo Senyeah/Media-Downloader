@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -e
 
 # Usage create-vod-hls.sh SOURCE_FILE [OUTPUT_NAME]
@@ -36,7 +35,7 @@ key_frames_interval=$(echo `printf "%.1f\n" $(bc -l <<<"$key_frames_interval/10"
 key_frames_interval=${key_frames_interval%.*} # truncate to integer
 
 # static parameters that are similar for all renditions
-static_params="-c:a aac -ar 48000 -c:v libx264 -preset superfast -profile:v main -crf 20 -sc_threshold 0"
+static_params="-c:a aac -ar 48000 -c:v libx264 -preset ultrafast -profile:v main -sc_threshold 0"
 static_params+=" -g ${key_frames_interval} -keyint_min ${key_frames_interval} -hls_time ${segment_target_duration}"
 static_params+=" -hls_playlist_type vod"
 
@@ -78,5 +77,4 @@ ffmpeg ${misc_params} -i ${source} ${cmd}
 
 # create master playlist file
 echo -e "${master_playlist}" > ${target}/playlist.m3u8
-
 echo "Done - encoded HLS is at ${target}/"
