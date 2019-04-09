@@ -20,7 +20,7 @@ DROPLET_NAME='transcode-droplet'
 #   c-32 22m: 5m 10s (~6.7x) ~$1/hr
 doctl compute droplet create "$DROPLET_NAME" \
       --size c-8 \
-      --image ubuntu-16-04-x64 \
+      --image 45740183 \
       --region lon1 \
       --ssh-keys 23354048
 
@@ -53,10 +53,9 @@ ssh-keyscan -H $SERVER_ADDRESS >> ~/.ssh/known_hosts
 # Stop strict host key checking for the droplet
 ssh -o 'StrictHostKeyChecking no' root@$SERVER_ADDRESS ':'
 
-echo "Copying binaries..."
-
+# echo "Copying binaries..."
 # Quickest method to get binaries across to the transcoding server
-scp ~/bin/ffmpeg ~/bin/ffprobe ~/bin/bc root@$SERVER_ADDRESS:/usr/bin
+# scp ~/bin/ffmpeg ~/bin/ffprobe root@$SERVER_ADDRESS:/usr/bin
 
 # Copy media and hls creation script
 scp ~/create-hls-stream.sh ~/ffmpeg-monitor-progress.sh root@$SERVER_ADDRESS:~
