@@ -159,7 +159,7 @@ do
   scp -r root@$SERVER_ADDRESS:~/"$file-hls" $1
   
   # Update the status file
-  PLAYBACK_URL="$1/$file-hls/playlist.m3u8"
+  PLAYBACK_URL="http://senyeah.xyz:62987/$file-hls/playlist.m3u8"
   
   flock $STATUS_FILE.lock \
   jq --arg url "$DOWNLOADED_URL" \
